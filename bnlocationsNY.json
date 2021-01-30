@@ -1,0 +1,338 @@
+[
+ {
+   "Location": "Coney Island",
+   "State": "NY",
+   "Year Completed": 1923,
+   "Latitude": 40.572843,
+   "Longitude": -73.978114,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Rockaway Beach",
+   "State": "NY",
+   "Year Completed": 1930,
+   "Latitude": 40.585221,
+   "Longitude": -73.806914,
+   "Primary Funding Source": "Unknown"
+ },
+ {
+   "Location": "Oak Beach",
+   "State": "NY",
+   "Year Completed": 1946,
+   "Latitude": 40.639562,
+   "Longitude": -73.284355,
+   "Primary Funding Source": "Unknown"
+ },
+ {
+   "Location": "Oak Beach, Gilgo Beach, Cedar Beach",
+   "State": "NY",
+   "Year Completed": 1959,
+   "Latitude": 40.639488,
+   "Longitude": -73.307819,
+   "Primary Funding Source": "Unknown"
+ },
+ {
+   "Location": "Great South Beach",
+   "State": "NY",
+   "Year Completed": 1960,
+   "Latitude": 40.752751,
+   "Longitude": -72.798758,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Hampton Beach",
+   "State": "NY",
+   "Year Completed": 1962,
+   "Latitude": 40.853823,
+   "Longitude": -72.43596,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Westhampton Beach",
+   "State": "NY",
+   "Year Completed": 1962,
+   "Latitude": 40.794643,
+   "Longitude": -72.639198,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Fire Island: Multiple Locations",
+   "State": "NY",
+   "Year Completed": 1962,
+   "Latitude": 40.679163,
+   "Longitude": -73.018437,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Shinnecock Inlet to Moriches Inlet",
+   "State": "NY",
+   "Year Completed": 1962,
+   "Latitude": 40.788966,
+   "Longitude": -72.663092,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Mecox Beach",
+   "State": "NY",
+   "Year Completed": 1962,
+   "Latitude": 40.891845,
+   "Longitude": -72.328148,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Lido Beach",
+   "State": "NY",
+   "Year Completed": 1962,
+   "Latitude": 40.585425,
+   "Longitude": -73.624578,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Moriches Inlet",
+   "State": "NY",
+   "Year Completed": 1966,
+   "Latitude": 40.764746,
+   "Longitude": -72.752731,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Jones Beach",
+   "State": "NY",
+   "Year Completed": 1973,
+   "Latitude": 40.592448,
+   "Longitude": -73.51244,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Gilgo Beach",
+   "State": "NY",
+   "Year Completed": 1974,
+   "Latitude": 40.617373,
+   "Longitude": -73.397169,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Hempstead Beach",
+   "State": "NY",
+   "Year Completed": 1990,
+   "Latitude": 40.831541,
+   "Longitude": -73.657837,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Plumb Beach",
+   "State": "NY",
+   "Year Completed": 1992,
+   "Latitude": 40.583648,
+   "Longitude": -73.927345,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "West of Shinnecock Inlet/Tiana Beach",
+   "State": "NY",
+   "Year Completed": 1993,
+   "Latitude": 40.830908,
+   "Longitude": -72.514164,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Fire Island: Saltaire/Fair Harbor/Dunewood",
+   "State": "NY",
+   "Year Completed": 1994,
+   "Latitude": 40.636167,
+   "Longitude": -73.18903,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Fire Island: Ocean Bay Park",
+   "State": "NY",
+   "Year Completed": 1994,
+   "Latitude": 40.646945,
+   "Longitude": -73.139323,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Fire Island: Fire Island Pines",
+   "State": "NY",
+   "Year Completed": 1994,
+   "Latitude": 40.663322,
+   "Longitude": -73.067322,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Fire Island: Point O' Woods",
+   "State": "NY",
+   "Year Completed": 1994,
+   "Latitude": 40.649827,
+   "Longitude": -73.127789,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Fire Island: Seaview",
+   "State": "NY",
+   "Year Completed": 1994,
+   "Latitude": 40.645146,
+   "Longitude": -73.147981,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Breezy Point/Roxbury",
+   "State": "NY",
+   "Year Completed": 1994,
+   "Latitude": 40.558992,
+   "Longitude": -73.929116,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Point Lookout/Jones Inlet",
+   "State": "NY",
+   "Year Completed": 1995,
+   "Latitude": 40.585783,
+   "Longitude": -73.581533,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Smith Point County Park",
+   "State": "NY",
+   "Year Completed": 1996,
+   "Latitude": 40.753694,
+   "Longitude": -72.795625,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Fire Island: Water Island",
+   "State": "NY",
+   "Year Completed": 1996,
+   "Latitude": 40.674454,
+   "Longitude": -73.029299,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Staten Island",
+   "State": "NY",
+   "Year Completed": 2000,
+   "Latitude": 40.557162,
+   "Longitude": -74.102032,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Robert Moses State Park",
+   "State": "NY",
+   "Year Completed": 2002,
+   "Latitude": 40.620728,
+   "Longitude": -73.280182,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "West of Shinnecock Inlet/Tiana Beach",
+   "State": "NY",
+   "Year Completed": 2005,
+   "Latitude": 40.839983,
+   "Longitude": -72.473545,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Fire Island: Central Fire Island",
+   "State": "NY",
+   "Year Completed": 2009,
+   "Latitude": 40.645567,
+   "Longitude": -73.147527,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Fire Island: Davis Park",
+   "State": "NY",
+   "Year Completed": 2009,
+   "Latitude": 40.683296,
+   "Longitude": -73.003449,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Fire Island: Western Fire Island",
+   "State": "NY",
+   "Year Completed": 2009,
+   "Latitude": 40.636875,
+   "Longitude": -73.186847,
+   "Primary Funding Source": "Local"
+ },
+ {
+   "Location": "Orchard Beach",
+   "State": "NY",
+   "Year Completed": 2011,
+   "Latitude": 40.86626,
+   "Longitude": -73.793174,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Ocean Parkway",
+   "State": "NY",
+   "Year Completed": 2013,
+   "Latitude": 40.603303,
+   "Longitude": -73.460778,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "North Shore of Long Island, Asharoken",
+   "State": "NY",
+   "Year Completed": 2013,
+   "Latitude": 40.931397,
+   "Longitude": -73.365591,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Southold",
+   "State": "NY",
+   "Year Completed": 2014,
+   "Latitude": 41.019982,
+   "Longitude": -72.54879,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Fire Island: Smith Point County Park",
+   "State": "NY",
+   "Year Completed": 2015,
+   "Latitude": 40.745184,
+   "Longitude": -72.822535,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Fire Island: Robert Moses State Park to Fire Island Lighthouse",
+   "State": "NY",
+   "Year Completed": 2015,
+   "Latitude": 40.621781,
+   "Longitude": -73.261814,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Rockaway Beach",
+   "State": "NY",
+   "Year Completed": 2016,
+   "Latitude": 40.582093,
+   "Longitude": -73.819036,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "Southold Town Beach",
+   "State": "NY",
+   "Year Completed": 2017,
+   "Latitude": 41.088991,
+   "Longitude": -72.414772,
+   "Primary Funding Source": "Other"
+ },
+ {
+   "Location": "Jones Inlet to East Rockaway Inlet (Long Beach)",
+   "State": "NY",
+   "Year Completed": 2019,
+   "Latitude": 40.583313,
+   "Longitude": -73.685149,
+   "Primary Funding Source": "Federal"
+ },
+ {
+   "Location": "East Rockaway Inlet",
+   "State": "NY",
+   "Year Completed": 2019,
+   "Latitude": 40.582467,
+   "Longitude": -73.818154,
+   "Primary Funding Source": "Federal"
+ }
+]
