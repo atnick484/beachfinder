@@ -1,0 +1,201 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Display
+{% endblock %}
+
+{% block main %}
+<body class="body">
+    <div id="map" style="width: 100%; height: 530px;"></div>
+
+    <!--Clear Directions button-->
+    <div id="clear_directions">
+        <button onclick="clearDirections()">Clear Directions</button>
+    </div>
+
+    <!--easy passing to JavaScript script-->
+    <input type="hidden"  id="pass_myLat" value="{{ myLat }}">
+    <input type="hidden"  id="pass_myLon" value="{{ myLon }}">
+
+    <script>
+        // allow us to hide the clear directions button
+        var x = document.getElementById("clear_directions");
+        x.style.display = "none";
+
+        // get user's latitude and longitude from hidden input
+        var lat = document.querySelector('#pass_myLat').value;
+        var lon = document.querySelector('#pass_myLon').value;
+
+        // make the map
+        // KEYS for MapQuest: k7WxTi51AsQ1Pa59AAuZ06OdrbTssIXz, 44KPl97E2XjQNRE7nl00mh5CHKLB2b1m, eCkAmwe5THClysJN9tmyMWXjrbxfR61k, qhiT9ltZNBh12B1HrzB6iQshSKk3VWcX, GWhvptRmF7qxJ0MEUDLqHGyZpZzKdVna, xsFviLJrRjECGhgZEMNuWKzFTRV1nj6f
+        L.mapquest.key = 'eCkAmwe5THClysJN9tmyMWXjrbxfR61k';
+        var map = L.mapquest.map('map', {
+          center: [lat, lon],
+          layers: L.mapquest.tileLayer('map'),
+          zoom: 11
+        })
+
+        // pin user's location
+        L.marker([lat, lon], {
+          icon: L.mapquest.icons.flag({symbol: 'You', primaryColor: '#5CDC2C'}),
+          draggable: false
+        }).bindPopup('You').addTo(map);
+
+        // create variables to pass each beach's latitude, longitude, and name into
+        var b_latitude;
+        var b_longitude;
+        var b_name;
+
+        // FOR DIRECTIONS
+        // directionsLayer is the actual directions path
+        var directionsLayer = L.mapquest.directionsLayer({
+            directionsResponse: response
+        }).addTo(map);
+        // narrativeControl is the list of directions on the right
+        var narrativeControl = L.mapquest.narrativeControl({
+          directionsResponse: response,
+          compactResults: false,
+          interactive: true
+        });
+        // variable to determine whether directions need to be cleared before adding new ones
+        var directionsSet = false;
+    </script>
+
+    <!--iterate through the beaches-->
+    {% for beach in beaches %}
+
+        <!--create hidden inputs to easily pass lat, lon, and name into JavaScript-->
+        <input type="hidden"  id="pass_lat" value="{{ beach.latitude }}">
+        <input type="hidden"  id="pass_lon" value="{{ beach.longitude }}">
+        <input type="hidden"  id="pass_name" value="{{ beach.name }}">
+
+        <script>
+            // update these global variables
+            b_latitude = document.querySelector('#pass_lat').value;
+            b_longitude = document.querySelector('#pass_lon').value;
+            b_name = document.querySelector('#pass_name').value;
+
+            // pin markers
+            L.marker([b_latitude, b_longitude], {
+                icon: L.mapquest.icons.marker({
+                    shadow: true,
+                    size: 'sm',
+                })
+            }).bindPopup(b_name).addTo(map);
+
+            // reset the hidden inputs for the next beach in the list
+            $("input[type='hidden']").remove();
+        </script>
+    {% endfor %}
+
+<!--if no beaches have been found-->
+{% if beaches|length == 0 %}
+    <h5 style="background-color: red">Unfortunately there are no beaches in our database near the location entered. Please select somewhere else or contact us if we are missing a beach!</h5>
+{% else %}
+    <!--create the beach table-->
+    <table class="table table-striped" background="static/blue.jpg">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Distance</th>
+                <th>Temperature</th>
+                <th>Humidity</th>
+                <th colspan="2">Precipatation</th>
+                <th>Sunrise</th>
+                <th>Sunset</th>
+                <th colspan="2">Conditions</th>
+                <th>Directions</th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for beach in beaches %}
+            <tr>
+                <td>{{beach.name}}</td>
+                <td>{{beach.distanceToUser}} mi</td>
+                <td>{{beach.temp}} °F</td>
+                <td>{{beach.humidity}}</td>
+                <td>{{beach.precipitation}} in/hr</td>
+                <td>{{beach.precipitation_type}}</td>
+                <td>{{beach.sunrise}}</td>
+                <td>{{beach.sunset}}</td>
+                <td>{{beach.weather_code}}</td>
+                <td>
+                    <img src="{{beach.img}}">
+                </td>
+                <td>
+                    <!--Get Directions button-->
+                    <button onclick="directions([{{beach.latitude}}, {{beach.longitude}}])">Get Directions</button>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endif %}
+    <script>
+
+        // create directions from start and end points
+        function directions(latLng) {
+            var directions = L.mapquest.directions();
+            directions.route({
+              start: [lat, lon],
+              end: latLng,
+              options: {
+                enhancedNarrative: true
+              }
+            }, createDirectionsMap);
+        }
+
+        // put directions on the map
+        function createDirectionsMap(err, response) {
+
+            // if directions were set previously; need to remove them
+            if (directionsSet == true) {
+                map.removeControl(narrativeControl);
+                map.removeLayer(directionsLayer);
+            }
+
+            // add directions path to map
+            directionsLayer = L.mapquest.directionsLayer({
+              directionsResponse: response
+            }).addTo(map);
+
+            // create listed directions
+            narrativeControl = L.mapquest.narrativeControl({
+              directionsResponse: response,
+              compactResults: false,
+              interactive: true
+
+            });
+
+            // add listed directions to map
+            narrativeControl.setDirectionsLayer(directionsLayer);
+            narrativeControl.addTo(map);
+
+            // directions are now set
+            directionsSet = true;
+
+            // display the Clear Directions button
+            x.style.display = "block";
+        }
+
+        // clears the directions
+        function clearDirections() {
+            map.removeControl(narrativeControl);
+            map.removeLayer(directionsLayer);
+            directionsSet = false;
+            x.style.display = "none";
+        }
+    </script>
+</body>
+{% endblock %}
+
+{% block footer %}
+<footer class="small text-center text-muted">
+    <span style="background-color: #FFFFFF">
+    Weather data provided for free by <a href="https://developer.climacell.co/">ClimaCell</a>. View <a href="https://www.climacell.co/legal/terms-of-service/">ClimaCell’s Terms of Use</a>.
+    Weather data also provided for free by <a href="https://weatherstack.com/">WeatherStack</a>. View <a href="https://weatherstack.com/terms">WeatherStack's Terms of Use</a>.
+    Map data provided for free by <a href="https://developer.mapquest.com/">MapQuest</a>. View <a href="https://hello.mapquest.com/terms-of-use">MapQuest’s Terms of Use</a>.
+    </span>
+</footer>
+{% endblock %}

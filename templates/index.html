@@ -1,0 +1,144 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search
+{% endblock %}
+
+{% block main %}
+<head>
+    <script src="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.js"></script>
+    <link type="text/css" rel="stylesheet" href="https://api.mqcdn.com/sdk/mapquest-js/v1.3.2/mapquest.css"/>
+
+</head>
+
+<body class="body">
+    <div class="container">
+        <!--enter a location prompt-->
+        <div class="section">
+                <h1 style="text-align: center">Enter a Location</h1>
+                <input id='street' placeholder="Street Address" type="text" autocomplete="off">
+                <input id='city' placeholder="City" type="text" autocomplete="off">
+                <input id='state' placeholder="State" type="text" autocomplete="off">
+                <input id='zip' placeholder="ZIP code" type="text" autocomplete="off">
+                <select id="sortBy">
+                    <option value="distanceToUser" disabled="disabled" selected>Sort by</option>
+                    <option value="distanceToUser">Distance away</option>
+                    <option value="temp">Temperature</option>
+                    <option value="humidity">Humidity</option>
+                    <option value="latitude">Latitude</option>
+                    <option value="longitude">Longitude</option>
+                </select>
+                <button onclick="locate()">Find Me A Beach!</button>
+                <p id='feedback'></p>
+        </div>
+
+        <!--find my location prompt-->
+        <div class="section">
+            <h1 style="text-align: center;">Or Find Me!</h1>
+                <select id="sortBy">
+                    <option value="distanceToUser" disabled="disabled" selected>Sort by</option>
+                    <option value="distanceToUser">Distance away</option>
+                    <option value="temp">Temperature</option>
+                    <option value="humidity">Humidity</option>
+                    <option value="latitude">Latitude</option>
+                    <option value="longitude">Longitude</option>
+                </select>
+                <button onclick="locateMe()">Find Me A Beach!</button>
+                <p id='feedback2'></p>
+        </div>
+
+    </div>
+
+    <!--map for entered location-->
+    <div id="map" style="width: 100%; height: 530px;"></div>
+    <script type="text/javascript">
+
+        // get user's location
+        function locateMe() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(usePosition);
+            }
+            else{
+                document.querySelector('#feedback2').innerHTML = "Geolocation is not supported by your browser.";
+            }
+        }
+
+        // makes map based on found location
+        function usePosition(position) {
+            let lat = position.coords.latitude;
+            let long = position.coords.longitude;
+            L.mapquest.key = 'Wt6iBeU0r0HOQfABA4cOeyAtzFl2MMvo';
+            var map = L.mapquest.map('map', {
+              center: [lat, long],
+              layers: L.mapquest.tileLayer('map'),
+              zoom: 11
+            });
+            L.marker([lat, long], {
+              icon: L.mapquest.icons.flag({symbol: 'Wait', primaryColor: '#5CDC2C'}),
+              draggable: false
+            }).bindPopup('Wait').addTo(map);
+            post(lat, long);
+        }
+
+        // uses entered info to find location
+        function locate() {
+          L.mapquest.key = 'k7WxTi51AsQ1Pa59AAuZ06OdrbTssIXz';
+          var street = "" + String(document.querySelector('#street').value);
+          var city = "" + String(document.querySelector('#city').value);
+          var state = "" + String(document.querySelector('#state').value);
+          var zip = "" + String(document.querySelector('#zip').value);
+          L.mapquest.geocoding().geocode({
+            street: street,
+            city: city,
+            state: state,
+            postalCode: zip
+          }, createMap);
+
+        }
+
+        // creates actual map
+        function createMap(error, response) {
+
+          var location = response.results[0].locations[0];
+          var latLng = location.displayLatLng;
+          var map = L.mapquest.map('map', {
+            center: latLng,
+            layers: L.mapquest.tileLayer('map'),
+            zoom: 11
+          });
+          L.marker(latLng, {
+            icon: L.mapquest.icons.flag({symbol: 'WAIT', primaryColor: '#5CDC2C'}),
+            draggable: false
+          }).bindPopup('WAIT').addTo(map);
+          post(latLng.lat, latLng.lng);
+        }
+
+        // send latitude, longitude, and sortBy off to application.py
+        function post(lat, long) {
+          var post, input1, input2;
+          var sortBy = "" + String(document.querySelector('#sortBy').value);
+          post = document.createElement('form');
+          post.action = '/';
+          post.method = 'post';
+          input1 = document.createElement('input');
+          input1.type = 'hidden';
+          input1.name = 'lat';
+          input1.value = lat;
+          input2 = document.createElement('input');
+          input2.type = 'hidden';
+          input2.name = 'lon';
+          input2.value = long;
+          input3 = document.createElement('input');
+          input3.type = 'hidden';
+          input3.name = 'sortBy'
+          input3.value = sortBy;
+          post.appendChild(input1);
+          post.appendChild(input2);
+          post.appendChild(input3);
+          document.body.appendChild(post);
+          post.submit();
+        }
+    </script>
+
+</body>
+{% endblock %}
