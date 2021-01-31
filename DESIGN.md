@@ -7,7 +7,7 @@ the list of beach locations. We will cover each part below:
 ### FINDING BEACHES
 We began by looking for a way to query data based off a user's location. After implementing SQL databases in CS50 in the past, we decided a SQL table could serve as our database
 of beaches. We searched the Internet for beach information data and found several databases that would allow us to download their data and import it into our own SQL database.
-By running our python script `importBeaches.py`, we were many beaches from across the United States into our SQL ready to be queried.
+By running our python script `importBeaches.py`, we imported many beaches from across the United States into our SQL database, ready to be queried.
 
 ### QUERYING THE DATABASE
 We implemented the front-end of our site on `index.html` with several forms for the user to either get their location via Geocoding or enter their address. Then, we got these
