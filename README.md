@@ -1,3 +1,6 @@
+### LINK TO DEMONSTRATION VIDEO:
+https://youtu.be/R3VpAYjpoA4
+
 ## BEACHFINDER DOCUMENTATION
 
 ### HOW TO RUN
@@ -38,6 +41,3 @@ step-by-step directions from our current location or the address, city, state, o
 to any beach in close proximity. A "Clear Directions" button appears once you set a route, so you can return to the
 clean map and see the other beaches on it. Without clicking the "Clear Directions" button, you can also click on "Get
 Directions" to another beach and the existing route and directions will be replaced.
-
-### LINK TO DEMONSTRATION VIDEO:
-https://youtu.be/R3VpAYjpoA4
